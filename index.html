@@ -8,9 +8,11 @@
 	<br>
 	<div id="output" style="text-align: center;"></div>
 	<span class="btn" onclick="ReverseLastMove()">undo last move</span> <br>
-		<span class="btn" onclick="Restart()">restart level</span> <br>
-		<span class="btn" onclick="ShowMoves()">see the moves you made</span> <br>
-	<span class="btn" onclick="ChangeLevel()">change level</span> &nbsp&nbsp <input type="number" id="KEP level" min="1" max="46" value="1"><br>
+	<span class="btn" onclick="Restart()">restart level</span> <br>
+	<span class="btn" onclick="ShowMoves()">see the moves you made</span> <br>
+	<span class="btn" onclick="NextLevel()">next level</span> &nbsp&nbsp <br>
+	change level &nbsp&nbsp 
+	<input type="number" onchange="changeLevel(this.value)" id="KEP level" min="1" max="46" value="1"><br>
 
 	<span class="btn" onclick="toggle_show_and_hide('KEP colors')">change colors</span> <br>
 	<div id="KEP colors" style="display: none;">
