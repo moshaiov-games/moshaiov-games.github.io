@@ -3,10 +3,11 @@
 	<link rel="stylesheet" href="main.css">
 
 </head>
-	
+
 	<canvas id="kingEatsPawnsCanvas"  width="350" height="350" class="idk"></canvas>
-	<br>
 	<div id="output" style="text-align: center;"></div>
+
+	<span class="btn" onclick="SeeRules();">see game rules</span> <br>
 	<span class="btn" onclick="ReverseLastMove()">undo last move</span> <br>
 	<span class="btn" onclick="Restart()">restart level</span> <br>
 	<span class="btn" onclick="ShowMoves()">see the moves you made</span> <br>
@@ -21,12 +22,20 @@
 	&nbsp vacant &nbsp <input type="color" id="vacant" value="#808080" onchange="changeColor('vacant')"> <br>
 	&nbsp clicked &nbsp <input type="color" id="clicked" value="#ffd500" onchange="changeColor('clicked')"> <br>
 	</div>
-	<br>
+
+
+	
+<br>
+<div id="rules">
 	game rules : <br>
 	1. each game starts with one king and several pawns <br>
 	2. the goal of the game is to eliminate the pawns one by one so eventually only the king will remain <br>
 	3. the kings and pawns live on the 13 cells a 5x5 grid, those colored black on a chessboard coloring <br>
-	4. a move consists of making one piece (a pawn or the king) jump over and eat a pawn. [just like in checkers, except horizontal and vertical jumps are also allowed]
+	4. a move consists of making one piece (a pawn or the king) jump over and eat a pawn. <br>
+	[just like in checkers, except horizontal and vertical jumps are also allowed]
 	<br><br>
 	this is a fan clone. no rights reserved.
+	</div>
+
 	<script src="kingEatsPawns.js"></script>
+	
