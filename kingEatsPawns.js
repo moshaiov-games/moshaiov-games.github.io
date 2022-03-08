@@ -362,3 +362,14 @@ function changeColor(key) {
 }
 
 Start(0)
+
+
+
+// ------------------------ MISC ------------------------
+function toggle_show_and_hide(id) {
+  var x = document.getElementById(id);
+  if (x.style.display === "none")
+    x.style.display = "inline";
+  else
+    x.style.display = "none";
+}
