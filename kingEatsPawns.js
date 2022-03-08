@@ -249,7 +249,6 @@ Game.prototype.MakeMove = function(cell1,cell2) {
 Game.prototype.ReverseLastMove = function() {
   if(this.movesMade.length > 0) {
     this.UnSelect()
-    output.innerHTML = ""
     cells = this.movesMade.pop()
     cell1 = cells[0]
     cell2 = cells[1]
@@ -281,8 +280,8 @@ Game.prototype.HasLost = function() {
 }
 
 Game.prototype.HandleEndGameIfNecessary = function() {
-  if(this.HasLost()) {output.innerHTML = "no possible moves"}
-  else if (this.HasWon()) {output.innerHTML = "You won!"}
+  if(this.HasLost()) {output.innerHTML += " : no possible moves"}
+  else if (this.HasWon()) {output.innerHTML += " : You won!"}
 }
 
 Game.prototype.NoPieceSelected = function() {
@@ -310,7 +309,6 @@ showMovesOn = false
 
 async function ShowMoves() {
   timeFrame = 1000
-  output.innerHTML = ""
   moves = game.movesMade
   len = moves.length
   Restart()
@@ -335,15 +333,22 @@ async function ShowMoves() {
 function ReverseLastMove() {
   game.ReverseLastMove()
   game.Draw()
+  OutputLevel(game.id)
 }
 
 function Start(id) {
   game = new Game(id);
   game.Draw()
+  OutputLevel(id)
+}
+
+function OutputLevel(id) {
+  let x = id + 1
+  let str = "level "+x
+  output.innerHTML = str
 }
 
 function Restart() {
-  output.innerHTML = ""
   Start(game.id)
 }
 
@@ -351,8 +356,15 @@ function ChangeLevel() {
   level = document.getElementById('KEP level').value - 1
   if(0 <= level && level < levels.length) {
     Start(level)
-    output.innerHTML = ""
   }
+}
+
+function NextLevel() {
+  id=game.id + 1
+  if (id < levels.length) {
+  	Start(id)
+  }
+
 }
 
 function changeColor(key) {
@@ -362,6 +374,7 @@ function changeColor(key) {
 }
 
 Start(0)
+
 
 
 
