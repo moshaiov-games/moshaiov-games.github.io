@@ -386,3 +386,8 @@ function toggle_show_and_hide(id) {
   else
     x.style.display = "none";
 }
+
+
+function SeeRules() {
+	location.href = "#rules";
+}
