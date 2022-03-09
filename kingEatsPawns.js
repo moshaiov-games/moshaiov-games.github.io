@@ -131,6 +131,12 @@ randomLevel = ["vacant","pawn","vacant","pawn","pawn","vacant","pawn","vacant","
 
 levels =
 [
+['vacant', 'vacant', 'vacant', 
+	'vacant', 'pawn',
+ 'vacant', 'vacant', 'vacant', 
+	'pawn', 'vacant', 
+'king', 'vacant', 'vacant'],
+
 ['vacant', 'vacant', 'vacant', 'vacant', 'vacant', 'vacant', 'pawn', 'vacant', 'king', 'pawn', 'vacant', 'vacant', 'pawn'],
 ['vacant', 'vacant', 'vacant', 'vacant', 'vacant', 'king', 'vacant', 'vacant', 'pawn', 'pawn', 'pawn', 'vacant', 'pawn'],
 ['vacant', 'vacant', 'vacant', 'pawn', 'vacant', 'pawn', 'pawn', 'king', 'vacant', 'vacant', 'pawn', 'vacant', 'vacant'],
@@ -179,7 +185,6 @@ levels =
 ['pawn', 'pawn', 'king', 'pawn', 'vacant', 'pawn', 'vacant', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn']
 ]
 
-console.log(levels.length)
 
 function GetNumPawns(board) {
   ret=0
@@ -343,8 +348,7 @@ function Start(id) {
 }
 
 function OutputLevel(id) {
-  let x = id + 1
-  let str = "level "+x
+  let str = "level "+id
   output.innerHTML = str
 }
 
@@ -353,18 +357,19 @@ function Restart() {
 }
 
 function ChangeLevel() {
-  level = document.getElementById('KEP level').value - 1
+  level = document.getElementById('KEP level').value
   if(0 <= level && level < levels.length) {
     Start(level)
   }
 }
 
 function NextLevel() {
-  id=game.id + 1
+  let id=game.id
+  id++
   if (id < levels.length) {
   	Start(id)
+	document.getElementById('KEP level').value=id
   }
-
 }
 
 function changeColor(key) {
